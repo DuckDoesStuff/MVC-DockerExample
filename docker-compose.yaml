@@ -1,0 +1,52 @@
+services:
+  web:
+    depends_on:
+      - server
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    command: npm start
+    develop:
+      watch:
+        - path: ./frontend/src
+          target: /app/src
+          action: sync
+        - path: ./frontend/package.json
+          action: rebuild
+        - path: ./frontend/package-lock.json
+          action: rebuild
+
+
+  server:
+    depends_on:
+      - db
+    build: ./backend
+    ports:
+      - "3001:3000"
+    command: npm run dev
+    develop:
+      watch:
+        - path: ./backend
+          target: /app
+          action: sync
+        - path: ./backend/package.json
+          action: rebuild
+        - path: ./backend/package-lock.json
+          action: rebuild
+
+
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+        POSTGRES_USER: admin
+        POSTGRES_PASSWORD: admin
+        POSTGRES_DB: db
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    
+    
+
+volumes:
+  db-data:
