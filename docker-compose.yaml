@@ -6,6 +6,8 @@ services:
     ports:
       - "3000:3000"
     command: npm start
+    networks:
+      - bridged-network
     develop:
       watch:
         - path: ./frontend/src
@@ -24,6 +26,8 @@ services:
     ports:
       - "3001:3000"
     command: npm run dev
+    networks:
+      - bridged-network
     develop:
       watch:
         - path: ./backend
@@ -33,12 +37,20 @@ services:
           action: rebuild
         - path: ./backend/package-lock.json
           action: rebuild
+    environment:
+      PGHOST: db
+      PGPORT: 5432
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: db
 
 
   db:
-    image: postgres:latest
+    build: ./database
     ports:
       - "5432:5432"
+    networks:
+      - bridged-network
     environment:
         POSTGRES_USER: admin
         POSTGRES_PASSWORD: admin
@@ -52,6 +64,8 @@ services:
     image: dpage/pgadmin4
     ports:
       - "5050:80"
+    networks:
+      - bridged-network
     environment:
       PGADMIN_DEFAULT_EMAIL: email@gmail.com
       PGADMIN_DEFAULT_PASSWORD: password
@@ -61,3 +75,8 @@ services:
 
 volumes:
   db-data:
+  pgadmin-data:
+
+networks:
+  bridged-network:
+    driver: bridge

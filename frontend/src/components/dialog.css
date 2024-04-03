@@ -1,0 +1,50 @@
+.dialog {
+    position:fixed;
+    top:0;
+    margin-top:100px;
+    display:flex;
+    border-radius:10px;
+    background:#222831;
+    border:2px solid #EEEEEE;
+    flex-direction:column;
+    justify-content:center;
+    padding: 20px 30px;
+}
+
+.dialog-label {
+    color: #EEEEEE;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.dialog-content {
+    background: #222831;
+    color: #EEEEEE;
+    border: 2px solid #EEEEEE;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-submit, .button-cancel {
+    background: #EEEEEE;
+    color: #222831;
+    border-radius: 10px;
+    padding: 5px 20px;
+    margin:10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #EEEEEE;
+    transition: all 0.15s;
+}
+
+.button-submit:hover, .button-cancel:hover {
+    background: #222831;
+    color: #EEEEEE;
+}

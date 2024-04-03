@@ -1,0 +1,46 @@
+
+.body {
+    background: #222831;
+    color: #EEEEEE;
+    height:100vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    background: #222831;
+    color: #EEEEEE;
+    border-radius: 10px;
+    padding: 5px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #EEEEEE;
+    transition: all 0.15s;
+}
+
+.button:hover {
+    background: #EEEEEE;
+    color: #222831;
+}
+
+.button-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+table, th, tr, td {
+    border: 2px solid #EEEEEE;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: left;
+}
+
+.col-name, .col-web, .col-addr, .col-phone {
+}
+
