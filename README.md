@@ -1,11 +1,12 @@
-**Examle mvc project**
 
-Full stack example project with MVC design using ReactJS, PostgreSQL, Expressjs
+## Examle mvc project
 
-To run the entire project:
+**Full stack example project with MVC design using ReactJS, PostgreSQL, Expressjs**
+
+**To run the entire project:**
 
     docker compose up
     
-To watch for file changes:
+**To watch for file changes:**
 
     docker compose watch
